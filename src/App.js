@@ -9,13 +9,9 @@ function App() {
     email: "",
     role: "",
   });
-  //
-  // Create state variables to hold team members and hold form values
-  //
-  // Create update and submit functions
-  //
   const onSubmit = () => {
     setMembers([values, ...members]);
+    setValues({ name: "", email: "", role: "" });
   };
 
   const onChange = (name, value) => {
@@ -25,6 +21,13 @@ function App() {
     <div className="App">
       <h1>Team Builder</h1>
       <Form values={values} change={onChange} submit={onSubmit} />
+      {members.map((member, idx) => {
+        return (
+          <div key={idx}>
+            {member.name}, {member.name}, {member.role}
+          </div>
+        );
+      })}
     </div>
   );
 }
